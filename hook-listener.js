@@ -88,10 +88,11 @@ http.createServer(function (req, res) {
                         base: json.ref,
                         head: branchName,
                         title: 'Attempted push to master by ' + json.pusher.name,
-                        body: "[skip ci]. This repository only allows additions to master by pull"
+                        body: "[skip ci]. Dear @"+json.pusher.name+", "
+                            + " this repository only allows additions to master by pull"
                             + " requests. Your push to master has automatically been rolled"
                             + " back and put into this branch. If you would like to test this"
-                            + " pull request, just ask me to `test this please`."
+                            + " change (pull request), just comment `test this please`."
                     }, cb);
                 }
             ], function (err, done) {
